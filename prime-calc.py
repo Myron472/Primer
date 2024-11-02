@@ -13,7 +13,12 @@ while True:
 			continue
 		if mode == "1":
 			print("Note: Start and end values themselves also will be included in the range.")
-			print("To go back to mode selection menu type 'back'. To exit type 'exit'.\nYou can type theese commands in any prompt in this mode.")
+			print("To go back to mode selection menu type 'back'. To exit type 'exit'.\nYou can type these commands in any prompt in this mode.")
+			print("\nSet number separator character. Press Enter to leave it's default value (EOL character).\nIf you want to set custom separator character type it into the prompt field.\n(You can set any value of any length).")
+			sep = input(">")
+			if sep == "":
+				sep = "\n"
+			sep_len = len(sep)
 			while True:
 				prompting = True
 				while prompting:
@@ -51,10 +56,13 @@ while True:
 					for n in range(start_range, end_range):
 						is_prime = not re.match(r'^.?$|^(..+?)\1+$', '1' * n)
 						if is_prime == True:
-							if n == "":
-								print(None)
-							else:
-								print(n)
+							start_range = n + 1
+							print(str(n), end="")
+							break
+					for n in range(start_range, end_range):
+						is_prime = not re.match(r'^.?$|^(..+?)\1+$', '1' * n)
+						if is_prime == True:
+							print(sep + str(n), end="")
 			if start_range == "back" or end_range == "back": break
 		elif mode == "2":
 			print("\nType your number")
