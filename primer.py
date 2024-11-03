@@ -20,10 +20,10 @@ ver = "v1.1"
 help_text = "In development"
 print("Primer", ver, "© GlydeR")
 sleep(1.4)
-
+print()
 # Looping program execution
 while True:
-	print("\nSelect preferable working mode:\n1. Tell if the number is prime\n2. Output prime numbers from a range\n\nTo see help type 'help'")
+	print("Select preferable working mode:\n1. Tell if the number is prime\n2. Output prime numbers from a range\n\nTo see help type 'help'")
 
 	# This loop is needed to not output upper text if user submitted empty value in the input field
 	# No need for exit condition as exit() function is used
@@ -43,7 +43,7 @@ while True:
 				n = input(">")
 				# Exiting loop
 				if n == "help": print(help_text)
-				elif n == "back": break
+				elif n == "back" or n == "mode": break
 				elif n == "exit": exit()
 				elif n != "":
 					n = int(n)
@@ -53,7 +53,7 @@ while True:
 					else:
 						print("Composite")
 			# Exiting mode
-			if n == "back": break
+			if n == "back" or n == "mode": break
 
 		# Output
 		elif mode == "2":
@@ -104,6 +104,7 @@ while True:
 							print("Not an integer")
 					if start_range == "back" or start_range == "output" or start_range == "mode":
 						cycling = False
+						continue
 	
 					prompting = True
 					while prompting:
@@ -122,6 +123,7 @@ while True:
 							print("Not an integer")
 					if end_range == "back" or end_range == "output" or end_range == "mode":
 						cycling = False
+						continue
 
 					# Compute values only if start_range is less than end_range
 					elif start_range > end_range:
