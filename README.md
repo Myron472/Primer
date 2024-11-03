@@ -1,5 +1,5 @@
 # Primer
-Primer is a program that outputs prime numbers in a couple of ways.
+Primer is a program that computes prime numbers by using RegEx.
 
 Abilities of the Primer:
 1. Tell whether the number is prime or composite
